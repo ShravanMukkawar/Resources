@@ -1,12 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import YouTubePlaylist from './pages/YouTubePlaylist';
+import Home from './pages/Home';
 
-export default function App() {
+
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
-}
+    <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/yt" element={<YouTubePlaylist />} />
+        </Routes>
+    </Router>
+  );
+};
+
+export default App;
