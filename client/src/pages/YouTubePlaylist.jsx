@@ -23,40 +23,76 @@ const YouTubePlaylist = () => {
 
   const [watchedVideos, setWatchedVideos] = useState(loadWatchedVideos); // State to track watched videos
   const [watchLaterVideos, setWatchLaterVideos] = useState(loadWatchLaterVideos); // State to track watch later videos
+  
+  const [totalDuration, setTotalDuration] = useState(0); // Total duration of playlist
+  const [videoDurations, setVideoDurations] = useState({}); // Store video durations by ID
 
   // Function to fetch playlist videos
   const fetchPlaylistVideos = async (pageToken = '') => {
-    if (fetchedTokens.has(pageToken)) return; // Prevent fetching duplicate tokens
-
+    if (fetchedTokens.has(pageToken)) return;
     try {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/playlistItems`,
         {
           params: {
-            part: 'snippet',
-            playlistId: PLAYLIST_ID, // Replace with your playlist ID
-            key: API_KEY, // Replace with your YouTube API key
+            part: 'snippet,contentDetails',
+            playlistId: PLAYLIST_ID,
+            key: API_KEY,
             maxResults: 20,
-            pageToken: pageToken, // Fetch next page if token exists
+            pageToken: pageToken,
           },
         }
       );
-
+  
       const newVideos = response.data.items;
-
+  
+      // Fetch video durations
+      const videoIds = newVideos.map(video => video.contentDetails.videoId).join(',');
+      const durationResponse = await axios.get(`https://www.googleapis.com/youtube/v3/videos`, {
+        params: {
+          part: 'contentDetails',
+          id: videoIds,
+          key: API_KEY,
+        },
+      });
+  
+      const durations = durationResponse.data.items.map(video => parseDuration(video.contentDetails.duration));
+      const totalNewDuration = durations.reduce((sum, duration) => sum + duration, 0);
+  
+      setTotalDuration(prevDuration => prevDuration + totalNewDuration);
+  
+      // Update videoDurations with the new durations
+      setVideoDurations((prevDurations) => {
+        const newDurations = {};
+        newVideos.forEach((video, index) => {
+          const videoId = video.contentDetails.videoId;
+          newDurations[videoId] = durations[index];
+        });
+        return { ...prevDurations, ...newDurations };
+      });
+  
       // Filter out duplicate videos
       setVideos((prevVideos) => {
-        const existingIds = new Set(prevVideos.map(video => video.snippet.resourceId.videoId)); // Create a set of existing video IDs
-        const filteredVideos = newVideos.filter(video => !existingIds.has(video.snippet.resourceId.videoId)); // Filter out duplicates
-        return [...prevVideos, ...filteredVideos]; // Append new unique videos to the existing list
+        const existingIds = new Set(prevVideos.map(video => video.snippet.resourceId.videoId));
+        const filteredVideos = newVideos.filter(video => !existingIds.has(video.snippet.resourceId.videoId));
+        return [...prevVideos, ...filteredVideos];
       });
-
-      setNextPageToken(response.data.nextPageToken || null); // Set next page token, or null if there are no more pages
-      setFetchedTokens((prevTokens) => new Set(prevTokens).add(pageToken)); // Add token to fetchedTokens set
-
+  
+      setNextPageToken(response.data.nextPageToken || null);
+      setFetchedTokens((prevTokens) => new Set(prevTokens).add(pageToken));
+  
     } catch (error) {
       console.error('Error fetching playlist videos', error);
     }
+  };
+  
+
+  const parseDuration = (duration) => {
+    const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    const hours = match[1] ? parseInt(match[1].replace('H', '')) : 0;
+    const minutes = match[2] ? parseInt(match[2].replace('M', '')) : 0;
+    const seconds = match[3] ? parseInt(match[3].replace('S', '')) : 0;
+    return hours * 3600 + minutes * 60 + seconds;
   };
 
   useEffect(() => {
@@ -115,8 +151,25 @@ const YouTubePlaylist = () => {
     return watchLaterVideos.includes(videoId); // Check if video ID is in the watch later list
   };
 
+  const calculateTotalWatchedTime = () => {
+    return watchedVideos.reduce((sum, videoId) => sum + (videoDurations[videoId] || 0), 0);
+  };
+
+  const formatTime = (seconds) => {
+    const hrs = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return `${hrs}h ${mins}m ${secs}s`;
+  };
+
   return (
     <>
+      <div className="absolute top-0 right-0 text-white bg-blue-900 p-2 rounded shadow-lg">
+        <p>Total Videos: {videos.length}</p>
+        <p>Total Watched: {watchedVideos.length}</p>
+        <p>Total Length: {formatTime(totalDuration)}</p>
+        <p>Total Time Watched: {formatTime(calculateTotalWatchedTime())}</p>
+      </div>
       {/* Main Content - Flex Container */}
       <div className="flex w-[100vw] h-[100vh]">
         {/* Video Titles Section */}
@@ -184,3 +237,4 @@ const YouTubePlaylist = () => {
 };
 
 export default YouTubePlaylist;
+ 

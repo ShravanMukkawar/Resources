@@ -10,8 +10,9 @@ const App = () => {
   return (
     <Router>
         <Routes>
-        <Route path="/" element={<FileUpload />} />
+        <Route path="/upload" element={<FileUpload />} />
           <Route path="/yt" element={<YouTubePlaylist />} />
+          <Route path="/" element={<Home />} />
         </Routes>
     </Router>
   );

@@ -5,16 +5,12 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const resourseRouter = require('./routes/resourceRoutes');
-const dropRouter=require('./routes/dropRoutes')
+const dropRouter = require('./routes/dropRoutes')
 const AppError = require('./utils/appError'); // Import AppError
 
 dotenv.config({ path: './config.env' });
 const app = express();
 
-app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true
-}));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -22,16 +18,19 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
+app.use(cors());
 
 app.use((req, res, next) => {
     console.log("HI i am middleware 😀");
     next();
 });
 
+console.log(process.env.FRONTEND_URL);
+
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 app.use('/api/v1/resources', resourseRouter);
-app.use('/api',dropRouter)
+app.use('/api', dropRouter)
 app.get('/', (request, response) => {
     response.json({
         message: "server running fine"
