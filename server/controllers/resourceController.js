@@ -3,33 +3,36 @@ const Semester = require("../models/Semester");
 const Subject = require("../models/Subject");
 const Chapter = require("../models/Chapter");
 const catchAsync = require('../utils/catchAsync');
+const mongoose = require('mongoose');
+//const ObjectId = mongoose.Types.ObjectId;  // Import ObjectId
+
 
 exports.getResources = catchAsync(async (req, res, next) => {
-    try {
-        const { branch, semester, subject, chapter } = req.query;
-        console.log(branch, semester, subject, chapter);
-        const resources = await Chapter.find({
-            name: chapter,
-        })
-            .populate({
-                path: "subject",
-                match: { name: subject },
-                populate: {
-                    path: "semester",
-                    match: { number: semester },
-                    populate: {
-                        path: "branch",
-                        match: { name: branch },
-                    },
-                },
-            })
-            .exec();
+  try {
+    const { branch, semester } = req.query; // Only getting branch and semester from query parameters
+    console.log(branch, semester);
 
-        res.status(200).json(resources);
-    } catch (error) {
-        next(error);
-    }
-})
+    // Build the filter for branch and semester
+    const resources = await Chapter.find({})
+      .populate({
+        path: "subject",
+        populate: {
+          path: "semester",
+          match: { number: semester }, // Filtering based on semester number
+          populate: {
+            path: "branch",
+            match: { name: branch }, // Filtering based on branch name
+          },
+        },
+      })
+      .exec();
+
+    // Respond with the retrieved resources
+    res.status(200).json(resources);
+  } catch (error) {
+    next(error);
+  }
+});
 
 exports.addResource = catchAsync(async (req, res, next) => {
     try {
