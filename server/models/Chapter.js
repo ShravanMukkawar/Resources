@@ -5,7 +5,7 @@ const ChapterSchema = new mongoose.Schema({
     subject: { type: mongoose.Schema.Types.ObjectId, ref: "Subject" },
     resources: [
         {
-            type: { type: String, enum: ["pdf", "youtube"], required: true },
+            type: { type: String, enum: ["pdf", "youtube","url"], required: true },
             link: { type: String, required: true },
         },
     ],
