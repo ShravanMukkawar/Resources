@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const resourseRouter = require('./routes/resourceRoutes');
 const dropRouter = require('./routes/dropRoutes')
+const visitorRoutes = require('./routes/visitorCountRoutes');
+
 const AppError = require('./utils/appError'); // Import AppError
 
 dotenv.config({ path: './config.env' });
@@ -31,6 +33,7 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 app.use('/api/v1/resources', resourseRouter);
 app.use('/api', dropRouter)
+app.use('/api', visitorRoutes);
 app.get('/', (request, response) => {
     response.json({
         message: "server running fine"
