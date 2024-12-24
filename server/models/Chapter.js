@@ -5,8 +5,10 @@ const ChapterSchema = new mongoose.Schema({
     subject: { type: mongoose.Schema.Types.ObjectId, ref: "Subject" },
     resources: [
         {
-            type: { type: String, enum: ["pdf", "youtube","url"], required: true },
+            type: { type: String, enum: ["pdf", "youtube", "url"], required: true },
             link: { type: String, required: true },
+            from: { type: Number, required: function () { return this.type === "youtube"; } }, // Only required for youtube
+            to: { type: Number, required: function () { return this.type === "youtube"; } },   // Only required for youtube
         },
     ],
 });

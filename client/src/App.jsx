@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import YouTubePlaylist from './pages/YouTubePlaylist';
 import FileUpload from './pages/upload.jsx'
@@ -12,7 +11,7 @@ const App = () => {
     <Router>
         <Routes>
         <Route path="/upload" element={<FileUpload />} />
-          <Route path="/yt" element={<YouTubePlaylist />} />
+          <Route path="/yt/:id" element={<YouTubePlaylist />} />
           <Route path="/" element={<Home />} />
           <Route path="/getr" element={<FetchResourcesPage />} />
         </Routes>

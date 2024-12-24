@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FetchResourcesPage = () => {
   const [formData, setFormData] = useState({
     branch: "",
     semester: "",
   });
+  const navigate = useNavigate();
 
   const [resources, setResources] = useState([]);
   const [subjects, setSubjects] = useState([]);
@@ -33,6 +35,7 @@ const FetchResourcesPage = () => {
       const response = await axios.get(
         `http://localhost:8000/api/v1/resources?branch=${branch}&semester=${semester}`
       );
+      
 
       setResources(response.data || []); // Set the resources received from the backend
 
@@ -56,6 +59,12 @@ const FetchResourcesPage = () => {
   const filteredResources = resources.filter(
     (resource) => resource.subject.name === selectedSubject
   );
+
+  const extractPlaylistId = (url) => {
+    const regex = /list=([a-zA-Z0-9_-]+)/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  };
 
   return (
     <div className="h-screen bg-white flex flex-col items-center justify-center p-6">
@@ -135,6 +144,15 @@ const FetchResourcesPage = () => {
                   <ul className="list-disc pl-6 space-y-2">
                     {resource.resources.map((res, index) => (
                       <li key={index} className="text-gray-700">
+                      {res.type === "youtube" ? (
+                        <span
+                          onClick={() => navigate(`/yt/${encodeURIComponent(extractPlaylistId(res.link))}?from=${res.from}&to=${res.to}`)}
+
+                        className="text-blue-500 hover:underline cursor-pointer"
+                        >
+                          YouTube - {res.link.length > 40 ? `${res.link.slice(0, 40)}...` : res.link}
+                        </span>
+                      ) : (
                         <a
                           href={res.link}
                           target="_blank"
@@ -143,7 +161,8 @@ const FetchResourcesPage = () => {
                         >
                           {res.type} - {res.link.length > 40 ? `${res.link.slice(0, 40)}...` : res.link}
                         </a>
-                      </li>
+                      )}
+                    </li>
                     ))}
                   </ul>
                 ) : (

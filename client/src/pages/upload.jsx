@@ -1,20 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const FileUpload = () => {
-  const [inputType, setInputType] = useState("file"); // State to track the selected input type
+  const [inputType, setInputType] = useState("file");
   const [file, setFile] = useState(null);
-  const [url, setUrl] = useState(""); // State to track the URL
+  const [url, setUrl] = useState("");
   const [folderName, setFolderName] = useState("Resources");
   const [semesterId, setSemesterId] = useState("");
   const [branchName, setBranchName] = useState("");
   const [subjectId, setSubjectId] = useState("");
   const [chapterId, setChapterId] = useState("");
+  const [ytPlaylist, setYtPlaylist] = useState("");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+
   const branches = ["Computer Engineering", "Electrical Engineering", "Mechanical Engineering", "Civil Engineering"];
 
-  useEffect(() => {
-    // Fetch logic if needed
-  }, []);
+  const extractPlaylistId = (url) => {
+    const match = url.match(/[?&]list=([^&]+)/);
+    return match ? match[1] : "";
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -31,6 +36,11 @@ const FileUpload = () => {
 
     if (inputType === "url" && !url) {
       alert("Please enter a valid URL.");
+      return;
+    }
+
+    if (inputType === "youtube" && (!ytPlaylist || !from || !to)) {
+      alert("Please fill all YouTube fields (URL, From, and To).");
       return;
     }
 
@@ -53,10 +63,13 @@ const FileUpload = () => {
       }
     } else if (inputType === "url") {
       saveResource(url);
+    } else if (inputType === "youtube") {
+      const playlistId = extractPlaylistId(ytPlaylist);
+      saveResource(ytPlaylist, { from, to, playlistId });
     }
   };
 
-  const saveResource = async (sharedLink) => {
+  const saveResource = async (sharedLink, youtubeDetails = {}) => {
     try {
       const resource = {
         branch: branchName,
@@ -64,8 +77,9 @@ const FileUpload = () => {
         subject: subjectId,
         chapter: chapterId,
         resource: {
-          type: inputType === "file" ? "pdf" : "url",
+          type: inputType === "file" ? "pdf" : inputType === "youtube" ? "youtube" : "url",
           link: sharedLink,
+          ...youtubeDetails, // Add `from`, `to`, and `playlistId` for YouTube
         },
       };
 
@@ -115,6 +129,15 @@ const FileUpload = () => {
             />
             Enter URL
           </label>
+          <label style={{ marginLeft: "10px" }}>
+            <input
+              type="radio"
+              value="youtube"
+              checked={inputType === "youtube"}
+              onChange={() => setInputType("youtube")}
+            />
+            Enter YouTube Playlist URL
+          </label>
         </div>
 
         {/* Dynamic Inputs */}
@@ -143,6 +166,49 @@ const FileUpload = () => {
               borderRadius: "5px",
             }}
           />
+        )}
+        {inputType === "youtube" && (
+          <>
+            <input
+              type="text"
+              placeholder="Enter YouTube Playlist URL"
+              value={ytPlaylist}
+              onChange={(e) => setYtPlaylist(e.target.value)}
+              style={{
+                margin: "10px 0",
+                padding: "10px",
+                width: "100%",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+            />
+            <input
+              type="number"
+              placeholder="From (seconds)"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+              style={{
+                margin: "10px 0",
+                padding: "10px",
+                width: "100%",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+            />
+            <input
+              type="number"
+              placeholder="To (seconds)"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+              style={{
+                margin: "10px 0",
+                padding: "10px",
+                width: "100%",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+            />
+          </>
         )}
 
         {/* Other Inputs */}
