@@ -55,6 +55,12 @@ const Navbar = () => {
                             >
                                 Resources
                             </Link>
+                            <Link
+                                to="/sfeedback"
+                                className="text-white px-3 py-2 rounded-md text-lg font-medium hover:bg-blue-700"
+                            >
+                                Feedback
+                            </Link>
                         </div>
                     </div>
                 </div>

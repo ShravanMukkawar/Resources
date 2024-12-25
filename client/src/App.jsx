@@ -5,6 +5,7 @@ import FileUpload from './pages/upload.jsx';
 import Home from './pages/Home';
 import FetchResourcesPage from './pages/getResource.jsx';
 import FeedbackPage from './pages/Feedback.jsx';
+import FeedbackForm from './pages/SubmitFeed.jsx';
 
 const App = () => {
   return (
@@ -16,7 +17,9 @@ const App = () => {
         <Route path="/yt/:id" element={<YouTubePlaylist />} />
         <Route path="/" element={<Home />} />
         <Route path="/getr" element={<FetchResourcesPage />} />
-        <Route path="/feedback" element={<FeedbackPage />} />
+        <Route path="/seefeedback" element={<FeedbackPage />} />
+        <Route path="/sfeedback" element={<FeedbackForm />} />
+
       </Routes>
     </Router>
   );
