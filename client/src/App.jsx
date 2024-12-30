@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import FetchResourcesPage from './pages/getResource.jsx';
 import FeedbackPage from './pages/Feedback.jsx';
 import FeedbackForm from './pages/SubmitFeed.jsx';
+import UpdateResourcesPage from './pages/UpdateResource.jsx';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/yt/:id" element={<YouTubePlaylist />} />
         <Route path="/" element={<Home />} />
         <Route path="/getr" element={<FetchResourcesPage />} />
+        <Route path="/updater" element={<UpdateResourcesPage />} />
         <Route path="/seefeedback" element={<FeedbackPage />} />
         <Route path="/sfeedback" element={<FeedbackForm />} />
 

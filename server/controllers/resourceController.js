@@ -94,3 +94,60 @@ exports.addResource = catchAsync(async (req, res, next) => {
   }
 })
 
+
+exports.updateResource = catchAsync(async (req, res, next) => {
+  const { branch, semester } = req.query; // Get branch and semester from query parameters
+  const { chapterId, resourceId, updates } = req.body;
+  console.log(req.body);
+  console.log(chapterId);
+  console.log(branch);
+  console.log(semester);
+  console.log(resourceId);
+
+  if (!branch || !semester) {
+    return res.status(400).json({ message: "Branch and semester are required." });
+  }
+
+  // Find the chapters filtered by branch and semester
+  const chapter = await Chapter.findById(chapterId)
+    .populate({
+      path: "subject",
+      populate: {
+        path: "semester",
+        match: { number: semester },
+        populate: {
+          path: "branch",
+          match: { name: branch },
+        },
+      },
+    })
+    .exec();
+
+  if (!chapter || !chapter.subject || !chapter.subject.semester || !chapter.subject.semester.branch) {
+    return res.status(404).json({ message: "Chapter not found for the specified branch and semester." });
+  }
+
+  // Find the specific resource in the chapter
+  const resource = chapter.resources.id(resourceId);
+  if (!resource) {
+    return res.status(404).json({ message: "Resource not found." });
+  }
+
+  // Update the resource fields
+  Object.assign(resource, updates);
+
+  // Validate YouTube-specific fields
+  if (resource.type === "youtube" && (!resource.from || !resource.to)) {
+    return res.status(400).json({ message: "YouTube resources require 'from' and 'to' fields." });
+  }
+
+  // Save the updated chapter
+  await chapter.save();
+
+  res.status(200).json({
+    message: "Resource updated successfully",
+    data: resource,
+  });
+});
+
+

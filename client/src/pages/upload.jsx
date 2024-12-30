@@ -5,6 +5,7 @@ const FileUpload = () => {
   const [inputType, setInputType] = useState("file");
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState("");
+  const [urlName, setUrlName] = useState("");
   const [folderName, setFolderName] = useState("Resources");
   const [semesterId, setSemesterId] = useState("");
   const [branchName, setBranchName] = useState("");
@@ -36,6 +37,10 @@ const FileUpload = () => {
 
     if (inputType === "url" && !url) {
       alert("Please enter a valid URL.");
+      return;
+    }
+    if (inputType === "urlName" && !urlName) {
+      alert("Please enter a valid URL Name.");
       return;
     }
 
@@ -79,6 +84,7 @@ const FileUpload = () => {
         resource: {
           type: inputType === "file" ? "pdf" : inputType === "youtube" ? "youtube" : "url",
           link: sharedLink,
+          linkName: urlName,
           ...youtubeDetails, // Add `from`, `to`, and `playlistId` for YouTube
         },
       };
@@ -211,7 +217,21 @@ const FileUpload = () => {
           </>
         )}
 
+
         {/* Other Inputs */}
+        <input
+          type="text"
+          placeholder="Enter URL NAME"
+          value={urlName}
+          onChange={(e) => setUrlName(e.target.value)}
+          style={{
+            margin: "10px 0",
+            padding: "10px",
+            width: "100%",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+          }}
+        />
         <input
           type="text"
           placeholder="Enter Folder Name"

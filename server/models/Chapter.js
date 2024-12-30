@@ -7,10 +7,13 @@ const ChapterSchema = new mongoose.Schema({
         {
             type: { type: String, enum: ["pdf", "youtube", "url"], required: true },
             link: { type: String, required: true },
+            linkName: { type: String, required: true },
             from: { type: Number, required: function () { return this.type === "youtube"; } }, // Only required for youtube
             to: { type: Number, required: function () { return this.type === "youtube"; } },   // Only required for youtube
         },
     ],
 });
+
+
 
 module.exports = mongoose.model("Chapter", ChapterSchema);

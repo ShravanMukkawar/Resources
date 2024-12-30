@@ -136,7 +136,14 @@ const FetchResourcesPage = () => {
                               navigate(`/yt/${encodeURIComponent(extractPlaylistId(res.link))}?from=${res.from}&to=${res.to}`)}
                             className="text-blue-500 cursor-pointer hover:underline"
                           >
-                            YouTube - {res.link.length > 40 ? `${res.link.slice(0, 40)}...` : res.link}
+                            {res.type} - 
+                                {res.linkName 
+                                  ? (res.linkName.length > 40 
+                                      ? `${res.linkName.slice(0, 35)}...` 
+                                      : res.linkName) 
+                                  : (res.link.length > 40 
+                                      ? `${res.link.slice(0, 35)}...` 
+                                      : res.link)}
                           </span>
                         ) : (
                           <a
@@ -145,7 +152,16 @@ const FetchResourcesPage = () => {
                             rel="noopener noreferrer"
                             className="text-blue-500 hover:underline"
                           >
-                            {res.type} - {res.link.length > 40 ? `${res.link.slice(0, 40)}...` : res.link}
+                            {res.type} - 
+{res.linkName 
+  ? (res.linkName.length > 40 
+      ? `${res.linkName.slice(0, 40)}...` 
+      : res.linkName) 
+  : (res.link.length > 40 
+      ? `${res.link.slice(0, 40)}...` 
+      : res.link)}
+
+
                           </a>
                         )}
                       </li>
