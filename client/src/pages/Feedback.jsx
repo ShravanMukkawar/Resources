@@ -39,7 +39,7 @@ const FeedbackPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 py-6 px-4">
+        <div className="min-h-screen w-[100vw] bg-gray-100 py-6 px-4">
             <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Feedback from Our Users</h1>
 
             <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
