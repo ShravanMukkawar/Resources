@@ -10,8 +10,7 @@ import UpdateResourcesPage from './pages/UpdateResource.jsx';
 
 const App = () => {
   return (
-    <Router>
-      {/* Navbar will be visible on all pages */}
+    <Router >
       <Navbar />
       <Routes>
         <Route path="/upload" element={<FileUpload />} />

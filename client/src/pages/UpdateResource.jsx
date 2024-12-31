@@ -120,7 +120,7 @@ const UpdateResourcePage = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen w-[100vw] flex flex-col items-center justify-center bg-gray-100 p-4">
       <h1 className="text-2xl font-semibold text-gray-800 mb-6">Update Resources</h1>
 
       <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
@@ -262,7 +262,7 @@ const UpdateResourcePage = () => {
                 <option value="">Select Type</option>
                 <option value="youtube">YouTube</option>
                 <option value="pdf">PDF</option>
-                <option value="other">Other</option>
+                <option value="url">URL</option>
               </select>
             </div>
 
