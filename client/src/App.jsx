@@ -7,6 +7,7 @@ import FetchResourcesPage from './pages/getResource.jsx';
 import FeedbackPage from './pages/Feedback.jsx';
 import FeedbackForm from './pages/SubmitFeed.jsx';
 import UpdateResourcesPage from './pages/UpdateResource.jsx';
+import CalendarComponent from './pages/Calendar.jsx';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/updater" element={<UpdateResourcesPage />} />
         <Route path="/seefeedback" element={<FeedbackPage />} />
         <Route path="/sfeedback" element={<FeedbackForm />} />
+        <Route path="/calendar" element={<CalendarComponent/>} />
 
       </Routes>
     </Router>
