@@ -18,6 +18,7 @@ const YouTubePlaylist = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [nextPageToken, setNextPageToken] = useState('');
   const [fetchedTokens, setFetchedTokens] = useState(new Set());
+  const [isLoading, setIsLoading] = useState(true); // Added loading state
 
   const loadWatchedVideos = () => {
     const watchedVideos = JSON.parse(localStorage.getItem('watchedVideos')) || [];
@@ -37,6 +38,7 @@ const YouTubePlaylist = () => {
 
   const fetchPlaylistVideos = async (pageToken = '') => {
     if (fetchedTokens.has(pageToken)) return;
+    setIsLoading(true); // Set loading to true before fetching
     try {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/playlistItems`,
@@ -87,6 +89,8 @@ const YouTubePlaylist = () => {
 
     } catch (error) {
       console.error('Error fetching playlist videos', error);
+    } finally {
+      setIsLoading(false); // Set loading to false after fetching, regardless of success or failure
     }
   };
 
@@ -175,31 +179,37 @@ const YouTubePlaylist = () => {
         <p>Total Length: {formatTime(totalDuration)}</p>
         <p>Total Time Watched: {formatTime(calculateTotalWatchedTime())}</p>
       </div>
-      <div className="flex w-[100vw] h-[100vh]">
-        <div className="bg-blue-500 dark:bg-blue-950 w-1/4 h-full overflow-y-auto p-4">
+      <div className="flex w-[98.9vw] m-0 p-0 h-[100vh]">
+        <div className="w-full md:w-1/4 bg-blue-500 dark:bg-blue-950 overflow-y-auto p-4">
           <h2 className="text-white text-lg font-semibold mb-4">Video Titles</h2>
-          {slicedVideos.map((video) => (
-            <div
-              key={video.snippet.resourceId.videoId}
-              title={video.snippet.title}
-              onClick={() => setSelectedVideo(video)}
-              className={`p-3 py-3 rounded mb-2 cursor-pointer overflow-hidden whitespace-nowrap text-ellipsis text-white ${
-                selectedVideo?.snippet.resourceId.videoId === video.snippet.resourceId.videoId
-                  ? isWatchLater(video.snippet.resourceId.videoId)
-                    ? 'bg-orange-500'
-                    : isWatched(video.snippet.resourceId.videoId)
-                    ? 'bg-green-700'
-                    : 'bg-blue-700'
-                  : isWatchLater(video.snippet.resourceId.videoId)
-                  ? 'bg-orange-500'
-                  : isWatched(video.snippet.resourceId.videoId)
-                  ? 'bg-green-500'
-                  : 'bg-blue-600'
-              }`}
-            >
-              {video.snippet.title}
+          {isLoading ? (
+            <div className="flex justify-center items-center h-32">
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-white"></div>
             </div>
-          ))}
+          ) : (
+            <ul className="space-y-2">
+              {slicedVideos.map((video) => (
+                <li
+                  key={video.snippet.resourceId.videoId}
+                  onClick={() => setSelectedVideo(video)}
+                  className={`p-3 rounded cursor-pointer transition-colors ${
+                    selectedVideo?.snippet.resourceId.videoId === video.snippet.resourceId.videoId
+                      ? 'bg-blue-700'
+                      : isWatchLater(video.snippet.resourceId.videoId)
+                      ? 'bg-orange-500 hover:bg-orange-600'
+                      : isWatched(video.snippet.resourceId.videoId)
+                      ? 'bg-green-500 hover:bg-green-600'
+                      : 'bg-blue-600 hover:bg-blue-700'
+                  }`}
+                >
+                  <h3 className="text-white font-medium truncate">{video.snippet.title}</h3>
+                  <p className="text-blue-200 text-sm mt-1">
+                    {formatTime(videoDurations[video.snippet.resourceId.videoId] || 0)}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <div className="flex-1 bg-blue-800 flex justify-center items-center flex-col p-4 overflow-hidden">
@@ -239,3 +249,4 @@ const YouTubePlaylist = () => {
 };
 
 export default YouTubePlaylist;
+
