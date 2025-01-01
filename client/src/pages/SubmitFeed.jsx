@@ -83,7 +83,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="min-h-screen w-[100vw] bg-[#001233] py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div className="min-h-screen  bg-[#001233] px-4 sm:px-6 lg:px-8 flex items-center justify-center">
       <motion.div 
         className="w-full max-w-md"
         initial="hidden"

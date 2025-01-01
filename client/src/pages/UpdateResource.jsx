@@ -163,7 +163,7 @@ const UpdateResourcePage = () => {
   // ... (rest of the JSX remains the same)
   return (
     <motion.div 
-      className="min-h-screen w-[100vw] bg-gradient-to-b from-[#001233] to-[#001845] p-6"
+      className="min-h-screen bg-gradient-to-b from-[#001233] to-[#001845] p-6"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

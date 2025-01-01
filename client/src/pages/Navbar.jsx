@@ -105,6 +105,14 @@ const Navbar = () => {
                             </motion.div>
                             <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
                                 <Link
+                                    to="/calendar"
+                                    className="text-gray-300 px-3 py-2 rounded-md text-lg font-medium hover:bg-gray-700 transition-colors duration-200"
+                                >
+                                    Calendar
+                                </Link>
+                            </motion.div>
+                            <motion.div variants={linkVariants} whileHover="hover" whileTap="tap">
+                                <Link
                                     to="/sfeedback"
                                     className="text-gray-300 px-3 py-2 rounded-md text-lg font-medium hover:bg-gray-700 transition-colors duration-200"
                                 >
@@ -158,6 +166,22 @@ const Navbar = () => {
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     Resources
+                                </Link>
+                            </motion.div>
+                            <motion.div 
+                                variants={linkVariants} 
+                                whileHover="hover" 
+                                whileTap="tap"
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.2 }}
+                            >
+                                <Link
+                                    to="/calendar"
+                                    className="text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 transition-colors duration-200"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    Calendar
                                 </Link>
                             </motion.div>
                             <motion.div 

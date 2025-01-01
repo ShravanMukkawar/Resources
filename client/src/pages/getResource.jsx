@@ -84,7 +84,7 @@ function ResourceList({ selectedSubject, filteredResources, isDark }) {
 }
 
 const FetchResourcesPage = () => {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(true)
   const [formData, setFormData] = useState({ branch: "", semester: "" })
   const [resources, setResources] = useState([])
   const [subjects, setSubjects] = useState([])
@@ -127,15 +127,15 @@ const FetchResourcesPage = () => {
   )
 
   return (
-    <div className={`min-h-screen w-[100vw] flex flex-col items-center justify-center p-4 transition-colors ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
+    <div className={`min-h-screen flex flex-col items-center justify-center p-4 transition-colors  bg-gradient-to-b from-[#001233] to-[#001845]`}>
       <div className="fixed top-4 right-4">
-        <button
-          onClick={() => setIsDark(!isDark)}
+        {/* <button
+          // onClick={() => setIsDark(!isDark)}
           className={`p-2 rounded-lg ${isDark ? 'bg-gray-800 text-gray-100' : 'bg-white text-gray-900'} shadow-lg`}
           aria-label="Toggle dark mode"
-        >
-          {isDark ? <Sun size={24} /> : <Moon size={24} />}
-        </button>
+        > */}
+          {/* {isDark ? <Sun size={24} /> : <Moon size={24} />} */}
+        {/* </button> */}
       </div>
 
       <div className={`w-full max-w-md ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border`}>
