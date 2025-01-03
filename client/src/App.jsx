@@ -8,6 +8,7 @@ import FeedbackPage from './pages/Feedback.jsx';
 import FeedbackForm from './pages/SubmitFeed.jsx';
 import UpdateResourcesPage from './pages/UpdateResource.jsx';
 import CalendarComponent from './pages/Calendar.jsx';
+import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
   return (
