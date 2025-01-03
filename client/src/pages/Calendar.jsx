@@ -57,9 +57,11 @@ const EventPopup = ({ events, onClose }) => {
 
 const CalendarDay = ({ day, events, onShowEvents }) => {
   const eventTypes = [
-    { key: 'holidays', color: 'bg-red-500/20 text-red-300' },
-    { key: 'examination', color: 'bg-blue-500/20 text-blue-300' },
-    { key: 'extraCurricularActivities', color: 'bg-purple-500/20 text-purple-300' }
+    { key: 'holidays', label: 'Holidays', color: 'bg-red-500/20 text-red-300 border-red-500/30' },
+    { key: 'examination', label: 'Examinations', color: 'bg-blue-500/20 text-blue-300 border-blue-500/30' },
+    { key: 'academicActivities', label: 'Academic Activities', color: 'bg-green-500/20 text-green-300 border-green-500/30' },
+    { key: 'extraCurricularActivities', label: 'Extra Curricular', color: 'bg-purple-500/20 text-purple-300 border-purple-500/30' },
+    { key: 'specialDaysJayantis', label: 'Special Days/Jayantis', color: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' }
   ];
 
   return (
