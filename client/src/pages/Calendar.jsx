@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Clock, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Calendar, Clock, ChevronLeft, ChevronRight, X, Info, AlertTriangle } from "lucide-react";
 import axios from "axios";
 
 const EventPopup = ({ events, onClose }) => {
@@ -55,19 +55,30 @@ const EventPopup = ({ events, onClose }) => {
   );
 };
 
-const CalendarDay = ({ day, events, onShowEvents }) => {
+const CalendarDay = ({ day, events, onShowEvents, isToday }) => {
   const eventTypes = [
-    { key: 'holidays', color: 'bg-red-500/20 text-red-300' },
-    { key: 'examination', color: 'bg-blue-500/20 text-blue-300' },
-    { key: 'extraCurricularActivities', color: 'bg-purple-500/20 text-purple-300' }
+    { key: 'holidays', label: 'Holidays', color: 'bg-red-500/20 text-red-300 border-red-500/30', highlightColor: 'bg-red-900/20' },
+    { key: 'examination', label: 'Examinations', color: 'bg-blue-500/20 text-blue-300 border-blue-500/30', highlightColor: 'bg-blue-900/20' },
+    { key: 'academicActivities', label: 'Academic Activities', color: 'bg-green-500/20 text-green-300 border-green-500/30' },
+    { key: 'extraCurricularActivities', label: 'Extra Curricular', color: 'bg-purple-500/20 text-purple-300 border-purple-500/30' },
+    { key: 'specialDaysJayantis', label: 'Special Days/Jayantis', color: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' }
   ];
+
+  // Determine cell background color based on events
+  const hasHoliday = events.some(event => event.holidays);
+  const hasExamination= events.some(event => event.examination);
+  const cellBackground = hasExamination ? 'bg-yellow-700/60' : hasHoliday ? 'bg-red-900/60' : 'bg-[#001233]/30';
 
   return (
     <div
-      className="bg-[#001233]/30 rounded-lg p-2 min-h-[120px] hover:bg-[#001233]/50 transition-colors relative group cursor-pointer"
+      className={`${cellBackground} rounded-lg p-2 min-h-[120px] hover:bg-[#001233]/50 transition-colors relative group cursor-pointer ${
+        isToday ? 'ring-2 ring-[#00B4D8] ring-offset-2 ring-offset-[#002855]' : ''
+      }`}
       onClick={() => events.length > 0 && onShowEvents(events)}
     >
-      <div className="text-white font-medium mb-2">{day}</div>
+      <div className={`font-medium mb-2 ${isToday ? 'text-[#00B4D8]' : 'text-white'}`}>
+        {day}
+      </div>
       <div className="space-y-1">
         {events.length > 0 && eventTypes.map(({ key, color }) => (
           events[0][key] && (
@@ -99,6 +110,15 @@ const CalendarComponent = () => {
   useEffect(() => {
     fetchEvents();
   }, [currentMonth]);
+
+  const isToday = (day) => {
+    const today = new Date();
+    return (
+      day === today.getDate() &&
+      currentMonth.getMonth() === today.getMonth() &&
+      currentMonth.getFullYear() === today.getFullYear()
+    );
+  };
 
   const fetchEvents = async () => {
     setLoading(true);
@@ -166,12 +186,17 @@ const CalendarComponent = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-b from-[#001233] to-[#001845]"
+      className="h-fit bg-gradient-to-b from-[#001233] to-[#001845]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <main className="container mx-auto px-4 py-16">
+    <div className="fixed bg-yellow-200 w-full  z-10 text-black p-4 rounded-lg text-center flex items-center justify-center gap-2">
+        <AlertTriangle size={20} className="text-black" /> {/* Info icon */}
+        <strong>Disclaimer:</strong> The listed events are subject to change due to modifications in the academic calendar. Please refer to the official academic calendar for the most up-to-date information.
+    </div>
+
+      <main className="container mx-auto px-4 py-20">
         <motion.section 
           className="mb-24"
           initial={{ y: 20, opacity: 0 }}
@@ -221,7 +246,7 @@ const CalendarComponent = () => {
               </div>
             )}
 
-            <div className="grid grid-cols-7 gap-1 relative">
+<div className="grid grid-cols-7 gap-1 relative">
               {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
                 <div key={day} className="text-[#00B4D8] font-semibold p-2 text-center">
                   {day}
@@ -249,6 +274,7 @@ const CalendarComponent = () => {
                     day={day}
                     events={dayEvents}
                     onShowEvents={handleShowEvents}
+                    isToday={isToday(day)}
                   />
                 );
               })}
@@ -290,6 +316,7 @@ const CalendarComponent = () => {
         </motion.section>
       </main>
 
+
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 6px;
@@ -305,6 +332,7 @@ const CalendarComponent = () => {
           background: #0090a8;
         }
       `}</style>
+      
     </motion.div>
   );
 };
