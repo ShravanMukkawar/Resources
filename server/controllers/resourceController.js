@@ -3,8 +3,6 @@ const Semester = require("../models/Semester");
 const Subject = require("../models/Subject");
 const Chapter = require("../models/Chapter");
 const catchAsync = require('../utils/catchAsync');
-const mongoose = require('mongoose');
-//const ObjectId = mongoose.Types.ObjectId;  // Import ObjectId
 
 
 exports.getResources = catchAsync(async (req, res, next) => {

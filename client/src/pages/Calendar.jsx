@@ -1,43 +1,125 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Calendar, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calendar, Clock, ChevronLeft, ChevronRight, X } from "lucide-react";
+import axios from "axios";
 
-const CalendarComponent = () => {
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-
-  // Sample contest data
-  const contests = [
-    {
-      platform: "LeetCode",
-      name: "#431",
-      date: "2025-01-05",
-      time: "11:30am",
-      type: "Biweekly Contest",
-    },
-    {
-      platform: "AtCoder",
-      name: "KUPC 2024",
-      date: "2025-01-05",
-      time: "1pm",
-      type: "Japanese Contest",
-    },
-    {
-      platform: "AtCoder",
-      name: "ABC 387",
-      date: "2025-01-04",
-      time: "9pm",
-      type: "Regular Contest",
-    },
-    {
-      platform: "Codeforces",
-      name: "Hello 2025",
-      date: "2025-01-04",
-      time: "11:35pm",
-      type: "Special Contest",
-    },
+const EventPopup = ({ events, onClose }) => {
+  const eventTypes = [
+    { key: 'holidays', label: 'Holidays', color: 'bg-red-500/20 text-red-300 border-red-500/30' },
+    { key: 'examination', label: 'Examinations', color: 'bg-blue-500/20 text-blue-300 border-blue-500/30' },
+    { key: 'academicActivities', label: 'Academic Activities', color: 'bg-green-500/20 text-green-300 border-green-500/30' },
+    { key: 'extraCurricularActivities', label: 'Extra Curricular', color: 'bg-purple-500/20 text-purple-300 border-purple-500/30' },
+    { key: 'specialDaysJayantis', label: 'Special Days/Jayantis', color: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' }
   ];
 
-  // Calendar helper functions
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95, y: -20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95, y: 20 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-[#001233] border border-[#00B4D8]/20 rounded-lg shadow-xl p-6 w-full max-w-md m-4"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-lg font-semibold text-white">Events</h3>
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            <X size={20} />
+          </button>
+        </div>
+        <div className="space-y-3 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+          {eventTypes.map(({ key, label, color }) => (
+            events[0][key] && (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className={`rounded-lg p-3 border ${color}`}
+              >
+                <div className="text-sm opacity-75 mb-1">{label}</div>
+                <div className="font-semibold">
+                  {events[0][key]}
+                </div>
+              </motion.div>
+            )
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const CalendarDay = ({ day, events, onShowEvents }) => {
+  const eventTypes = [
+    { key: 'holidays', color: 'bg-red-500/20 text-red-300' },
+    { key: 'examination', color: 'bg-blue-500/20 text-blue-300' },
+    { key: 'extraCurricularActivities', color: 'bg-purple-500/20 text-purple-300' }
+  ];
+
+  return (
+    <div
+      className="bg-[#001233]/30 rounded-lg p-2 min-h-[120px] hover:bg-[#001233]/50 transition-colors relative group cursor-pointer"
+      onClick={() => events.length > 0 && onShowEvents(events)}
+    >
+      <div className="text-white font-medium mb-2">{day}</div>
+      <div className="space-y-1">
+        {events.length > 0 && eventTypes.map(({ key, color }) => (
+          events[0][key] && (
+            <motion.div
+              key={key}
+              className={`text-xs rounded p-1 ${color} truncate`}
+            >
+              <div className="font-semibold truncate">
+                {events[0][key]}
+              </div>
+            </motion.div>
+          )
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Rest of the CalendarComponent remains the same...
+
+// Main calendar component
+const CalendarComponent = () => {
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [events, setEvents] = useState([]);
+  const [selectedEvents, setSelectedEvents] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchEvents();
+  }, [currentMonth]);
+
+  const fetchEvents = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      fetch("/events.json")
+            .then((response) => response.json())
+            .then((data) => {
+                setEvents(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching the JSON data:", error);
+            });
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      setError('Failed to load events. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const getDaysInMonth = (date) => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   };
@@ -50,16 +132,24 @@ const CalendarComponent = () => {
     return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
   };
 
-  const getContestsForDate = (year, month, day) => {
-    const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(
-      day
-    ).padStart(2, "0")}`;
-    return contests.filter((contest) => contest.date === dateStr);
+  const getEventsForDate = (year, month, day) => {
+    const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    return events.filter(event => {
+      const eventDate = new Date(event.date);
+      return eventDate.toISOString().split('T')[0] === dateStr;
+    });
   };
 
-  // Navigation handlers
+  const handleShowEvents = (events) => {
+    setSelectedEvents(events);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedEvents(null);
+  };
+
   const handlePreviousMonth = () => {
-    setCurrentMonth((prev) => {
+    setCurrentMonth(prev => {
       const newDate = new Date(prev);
       newDate.setMonth(prev.getMonth() - 1);
       return newDate;
@@ -67,61 +157,48 @@ const CalendarComponent = () => {
   };
 
   const handleNextMonth = () => {
-    setCurrentMonth((prev) => {
+    setCurrentMonth(prev => {
       const newDate = new Date(prev);
       newDate.setMonth(prev.getMonth() + 1);
       return newDate;
     });
   };
 
-  // Animation variants
-  const pageVariants = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 }
-  };
-
-  const calendarVariants = {
-    initial: { y: 20, opacity: 0 },
-    animate: { 
-      y: 0, 
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
-    }
-  };
-
   return (
     <motion.div
-      className=" min-h-screen bg-gradient-to-b from-[#001233] to-[#001845]"
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
+      className="min-h-screen bg-gradient-to-b from-[#001233] to-[#001845]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <main className="container mx-auto px-4 py-16">
         <motion.section 
           className="mb-24"
-          variants={calendarVariants}
-          initial="initial"
-          animate="animate"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ 
+            y: 0, 
+            opacity: 1,
+            transition: {
+              type: "spring",
+              stiffness: 300,
+              damping: 30
+            }
+          }}
         >
           <div className="bg-[#002855]/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-[#00B4D8]/20">
+            {/* Header section */}
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-4">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 <span className="inline-flex items-center border-b-2 border-[#00B4D8] pb-2">
                   <Calendar className="mr-2" />
-                  CP Calendar
+                  Event Calendar
                 </span>
               </h2>
               <div className="flex items-center gap-4">
                 <button 
                   onClick={handlePreviousMonth} 
                   className="text-white hover:text-[#00B4D8] transition-colors"
-                  aria-label="Previous month"
+                  disabled={loading}
                 >
                   <ChevronLeft size={24} />
                 </button>
@@ -131,14 +208,20 @@ const CalendarComponent = () => {
                 <button 
                   onClick={handleNextMonth} 
                   className="text-white hover:text-[#00B4D8] transition-colors"
-                  aria-label="Next month"
+                  disabled={loading}
                 >
                   <ChevronRight size={24} />
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-7 gap-1">
+            {error && (
+              <div className="text-red-400 text-center mb-4 p-2 bg-red-500/10 rounded">
+                {error}
+              </div>
+            )}
+
+            <div className="grid grid-cols-7 gap-1 relative">
               {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
                 <div key={day} className="text-[#00B4D8] font-semibold p-2 text-center">
                   {day}
@@ -154,42 +237,74 @@ const CalendarComponent = () => {
 
               {Array.from({ length: getDaysInMonth(currentMonth) }).map((_, index) => {
                 const day = index + 1;
-                const dayContests = getContestsForDate(
+                const dayEvents = getEventsForDate(
                   currentMonth.getFullYear(),
                   currentMonth.getMonth(),
                   day
                 );
                 
                 return (
-                  <div
+                  <CalendarDay
                     key={day}
-                    className="bg-[#001233]/30 rounded-lg p-2 min-h-[120px] hover:bg-[#001233]/50 transition-colors"
-                  >
-                    <div className="text-white font-medium mb-1">{day}</div>
-                    <div className="space-y-1">
-                      {dayContests.map((contest, idx) => (
-                        <motion.div
-                          key={idx}
-                          className="text-xs bg-[#00B4D8]/10 rounded p-1 text-gray-300"
-                          whileHover={{ scale: 1.02 }}
-                          transition={{ type: "spring", stiffness: 400 }}
-                        >
-                          <div className="font-semibold text-[#00B4D8] flex items-center gap-1">
-                            <Clock size={12} />
-                            {contest.time} [{contest.platform}]
-                          </div>
-                          <div>{contest.name}</div>
-                          <div className="text-[#00B4D8]/60 text-xs">{contest.type}</div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
+                    day={day}
+                    events={dayEvents}
+                    onShowEvents={handleShowEvents}
+                  />
                 );
               })}
             </div>
+
+            {/* Legend */}
+            <div className="mt-6 flex flex-wrap gap-4">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-red-500/20"></div>
+                <span className="text-red-300 text-sm">Holidays</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-blue-500/20"></div>
+                <span className="text-blue-300 text-sm">Examinations</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-green-500/20"></div>
+                <span className="text-green-300 text-sm">Academic Activities</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-purple-500/20"></div>
+                <span className="text-purple-300 text-sm">Extra Curricular</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-yellow-500/20"></div>
+                <span className="text-yellow-300 text-sm">Special Days/Jayantis</span>
+              </div>
+            </div>
+
+            <AnimatePresence>
+              {selectedEvents && (
+                <EventPopup
+                  events={selectedEvents}
+                  onClose={handleClosePopup}
+                />
+              )}
+            </AnimatePresence>
           </div>
         </motion.section>
       </main>
+
+      <style jsx global>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #001233;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #00B4D8;
+          border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #0090a8;
+        }
+      `}</style>
     </motion.div>
   );
 };

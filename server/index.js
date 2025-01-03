@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const resourseRouter = require('./routes/resourceRoutes');
 const dropRouter = require('./routes/dropRoutes')
+const eventRouter = require('./routes/eventRoutes');
 const visitorRoutes = require('./routes/visitorCountRoutes');
 
 const AppError = require('./utils/appError'); // Import AppError
@@ -32,6 +33,7 @@ console.log(process.env.FRONTEND_URL);
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 app.use('/api/v1/resources', resourseRouter);
+app.use('/api/v1/events', eventRouter);
 app.use('/api', dropRouter)
 app.use('/api', visitorRoutes);
 app.get('/', (request, response) => {
