@@ -61,13 +61,6 @@ const Home = () => {
         }
     };
 
-    const getPlatformColor = (platform) => {
-        const colors = {
-            'LeetCode': 'bg-yellow-500',
-            'CodeChef': 'bg-blue-500'
-        };
-        return colors[platform] || 'bg-gray-500';
-    };
 
     const formatDate = (dateStr) => {
         const date = new Date(dateStr);

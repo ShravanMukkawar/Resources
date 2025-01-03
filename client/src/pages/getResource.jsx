@@ -1,5 +1,8 @@
-import { useState } from "react"
-import { Moon, Sun } from "lucide-react"
+'use client'
+
+import { useState, useEffect } from "react"
+import { Moon, Sun } from 'lucide-react'
+import { motion, AnimatePresence } from "framer-motion"
 
 // Previous utility functions remain unchanged
 const extractPlaylistId = (url) => {
@@ -28,31 +31,49 @@ function LoadingSkeleton({ isDark }) {
 
 function ResourceList({ selectedSubject, filteredResources, isDark }) {
   return (
-    <div className={`w-full max-w-4xl ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border`}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5 }}
+      className={`w-full max-w-6xl ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border`}
+    >
       <div className={`p-6 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
-        <h2 className="text-2xl font-bold text-blue-500">
+        <h2 className="text-3xl font-bold text-blue-500">
           Resources for {selectedSubject}
         </h2>
       </div>
       <div className="p-6">
-        <div className="h-[400px] overflow-y-auto pr-4">
+        <div className="h-[600px] overflow-y-auto pr-4">
           <ul className="space-y-6">
             {filteredResources.map((chapter) => (
-              <li key={chapter._id} className={`${isDark ? 'bg-gray-700' : 'bg-gray-50'} rounded-xl p-4`}>
-                <h3 className={`font-semibold text-lg mb-3 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
+              <motion.li
+                key={chapter._id}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                className={`${isDark ? 'bg-gray-700' : 'bg-gray-50'} rounded-xl p-6`}
+              >
+                <h3 className={`font-semibold text-xl mb-4 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
                   {chapter.name}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {chapter.resources.length > 0 ? (
                     chapter.resources.map((res, index) => (
-                      <li key={index} className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="flex items-center"
+                      >
+                        <span className="w-3 h-3 bg-blue-500 rounded-full mr-3"></span>
                         {res.type === "youtube" ? (
                           <a
                             href={`/yt/${encodeURIComponent(
                               extractPlaylistId(res.link) || ""
                             )}?from=${res.from}&to=${res.to}`}
-                            className="text-blue-500 hover:text-blue-400 font-medium transition-colors hover:underline"
+                            className="text-blue-500 hover:text-blue-400 font-medium transition-colors hover:underline text-lg"
                           >
                             {res.type} - {res.linkName || res.link}
                           </a>
@@ -61,25 +82,25 @@ function ResourceList({ selectedSubject, filteredResources, isDark }) {
                             href={res.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-500 hover:text-blue-400 font-medium transition-colors hover:underline"
+                            className="text-blue-500 hover:text-blue-400 font-medium transition-colors hover:underline text-lg"
                           >
                             {res.type} - {res.linkName || res.link}
                           </a>
                         )}
-                      </li>
+                      </motion.li>
                     ))
                   ) : (
-                    <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} text-lg`}>
                       No resources available for this chapter.
                     </p>
                   )}
                 </ul>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -127,18 +148,23 @@ const FetchResourcesPage = () => {
   )
 
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center p-4 transition-colors  bg-gradient-to-b from-[#001233] to-[#001845]`}>
+    <div className={`min-h-screen flex flex-col items-center justify-center p-8 transition-colors bg-gradient-to-b from-[#001233] to-[#001845]`}>
       <div className="fixed top-4 right-4">
-        {/* <button
-          // onClick={() => setIsDark(!isDark)}
-          className={`p-2 rounded-lg ${isDark ? 'bg-gray-800 text-gray-100' : 'bg-white text-gray-900'} shadow-lg`}
+        <button
+          onClick={() => setIsDark(!isDark)}
+          className={`p-2 rounded-lg ${isDark ? 'bg-gray-800 text-gray-100' : 'bg-white text-gray-900'} shadow-lg transition-all duration-300 ease-in-out`}
           aria-label="Toggle dark mode"
-        > */}
-          {/* {isDark ? <Sun size={24} /> : <Moon size={24} />} */}
-        {/* </button> */}
+        >
+          {isDark ? <Sun size={24} /> : <Moon size={24} />}
+        </button>
       </div>
 
-      <div className={`w-full max-w-md ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border`}>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`w-full max-w-md ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border mb-8`}
+      >
         <div className={`p-6 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
           <h1 className="text-3xl font-bold text-blue-500">
             Study Resources
@@ -191,23 +217,33 @@ const FetchResourcesPage = () => {
               </select>
             </div>
 
-            <button
+            <motion.button
               type="submit"
               disabled={loading}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-xl disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors font-medium"
             >
               {loading ? "Fetching..." : "Fetch Resources"}
-            </button>
+            </motion.button>
           </form>
         </div>
-      </div>
+      </motion.div>
 
-      {error && (
-        <div className="mt-4 w-full max-w-md bg-red-900/10 border border-red-900/20 text-red-500 rounded-xl p-4">
-          <p className="font-semibold">Error</p>
-          <p>{error}</p>
-        </div>
-      )}
+      <AnimatePresence>
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="mt-4 w-full max-w-md bg-red-900/10 border border-red-900/20 text-red-500 rounded-xl p-4"
+          >
+            <p className="font-semibold">Error</p>
+            <p>{error}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {loading && (
         <div className="mt-6">
@@ -215,45 +251,64 @@ const FetchResourcesPage = () => {
         </div>
       )}
 
-      {resources.length > 0 && !loading && (
-        <div className={`mt-6 w-full max-w-md ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border`}>
-          <div className="p-6">
-            <select
-              className={`w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
-                ${isDark ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-white border-gray-300 text-gray-900'}`}
-              onChange={(e) => setSelectedSubject(e.target.value)}
-              value={selectedSubject}
-            >
-              <option value="" className={isDark ? 'text-gray-400' : 'text-gray-500'}>
-                Select a Subject
-              </option>
-              {subjects.map((subject, index) => (
-                <option key={index} value={subject} className={isDark ? 'text-gray-100' : 'text-gray-900'}>
-                  {subject}
+      <AnimatePresence>
+        {resources.length > 0 && !loading && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className={`mt-6 w-full max-w-md ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border`}
+          >
+            <div className="p-6">
+              <select
+                className={`w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
+                  ${isDark ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-white border-gray-300 text-gray-900'}`}
+                onChange={(e) => setSelectedSubject(e.target.value)}
+                value={selectedSubject}
+              >
+                <option value="" className={isDark ? 'text-gray-400' : 'text-gray-500'}>
+                  Select a Subject
                 </option>
-              ))}
-            </select>
+                {subjects.map((subject, index) => (
+                  <option key={index} value={subject} className={isDark ? 'text-gray-100' : 'text-gray-900'}>
+                    {subject}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {selectedSubject && filteredResources.length > 0 && (
+          <div className="mt-6">
+            <ResourceList
+              selectedSubject={selectedSubject}
+              filteredResources={filteredResources}
+              isDark={isDark}
+            />
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
 
-      {selectedSubject && filteredResources.length > 0 && (
-        <div className="mt-6">
-          <ResourceList
-            selectedSubject={selectedSubject}
-            filteredResources={filteredResources}
-            isDark={isDark}
-          />
-        </div>
-      )}
-
-      {resources.length === 0 && !loading && !error && (
-        <p className={`mt-6 font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-          No resources found.
-        </p>
-      )}
+      <AnimatePresence>
+        {resources.length === 0 && !loading && !error && (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className={`mt-6 font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+          >
+            No resources found.
+          </motion.p>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
 
 export default FetchResourcesPage
+
