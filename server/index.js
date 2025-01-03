@@ -11,7 +11,7 @@ const visitorRoutes = require('./routes/visitorCountRoutes');
 
 const AppError = require('./utils/appError'); // Import AppError
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './.env' });
 const app = express();
 
 

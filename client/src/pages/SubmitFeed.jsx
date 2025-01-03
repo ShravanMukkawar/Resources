@@ -26,7 +26,7 @@ const FeedbackForm = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      const response = await fetch('http://localhost:8000/api/feedback', {
+      const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/feedback`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

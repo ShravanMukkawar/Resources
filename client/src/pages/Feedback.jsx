@@ -10,7 +10,7 @@ const FeedbackPage = () => {
         // Fetch all feedback
         const fetchFeedback = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/feedback');
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/feedback`);
                 setFeedbackList(response.data);
             } catch (err) {
                 setError('Failed to load feedback.');

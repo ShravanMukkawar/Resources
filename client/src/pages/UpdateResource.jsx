@@ -46,7 +46,7 @@ const UpdateResourcePage = () => {
     try {
       const { branch, semester } = formData;
       const response = await fetch(
-        `http://localhost:8000/api/v1/resources?branch=${branch}&semester=${semester}`
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/v1/resources?branch=${branch}&semester=${semester}`
       );
       const data = await response.json();
 
@@ -99,7 +99,7 @@ const UpdateResourcePage = () => {
     try {
       const { branch, semester } = formData;
       const response = await fetch(
-        `http://localhost:8000/api/v1/resources?branch=${branch}&semester=${semester}`,
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/v1/resources?branch=${branch}&semester=${semester}`,
         {
           method: 'PATCH',
           headers: {

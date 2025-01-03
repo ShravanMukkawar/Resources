@@ -3,21 +3,9 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock } from 'lucide-react';
 
 const Home = () => {
-    const [visitorCount, setVisitorCount] = useState(0);
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        const fetchVisitorCount = async () => {
-            try {
-                const response = await fetch('http://localhost:8000/api/visitor-count');
-                const data = await response.json();
-                setVisitorCount(data.count);
-                await fetch('http://localhost:8000/api/visitor-count', { method: 'POST' });
-            } catch (err) {
-                console.error('Failed to fetch or update visitor count:', err);
-            }
-        };
-
         const fetchEvents = async () => {
             try {
                 const response = await fetch('/events.json'); // Fetch events from the public folder
@@ -35,7 +23,6 @@ const Home = () => {
         };
         
         
-        fetchVisitorCount();
         fetchEvents();
         console.log(events)
     }, []);
@@ -177,18 +164,6 @@ const Home = () => {
                         </p>
                     </div>
                 </motion.footer>
-
-                {/* Visitor Count */}
-                <motion.div 
-                    className="fixed bottom-4 right-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1 }}
-                >
-                    <div className="bg-[#002855]/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg border border-[#00B4D8]/20">
-                        <p className="text-sm text-gray-300">Visitors: {visitorCount}</p>
-                    </div>
-                </motion.div>
             </main>
             
         </motion.div>

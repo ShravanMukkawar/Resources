@@ -59,7 +59,7 @@ const FileUpload = () => {
       formData.append("chapterId", chapterId);
 
       try {
-        const response = await axios.post("http://localhost:8000/api/upload", formData);
+        const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/upload`, formData);
         alert("File uploaded successfully!");
         saveResource(response.data.sharedLink);
       } catch (error) {
@@ -89,7 +89,7 @@ const FileUpload = () => {
         },
       };
 
-      const response = await axios.post("http://localhost:8000/api/v1/resources", resource, {
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/v1/resources`, resource, {
         headers: {
           "Content-Type": "application/json",
         },
