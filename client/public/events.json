@@ -1,0 +1,1312 @@
+[
+    {
+        "_id": "6777a4a720a3d9d8e97f42c9",
+        "date": "2025-01-02T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": "Zest",
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42ca",
+        "date": "2025-01-03T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": "Zest",
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42cb",
+        "date": "2025-01-04T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": "Zest",
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42cc",
+        "date": "2025-01-05T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42cd",
+        "date": "2025-01-06T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Semester Credit Registration for 2nd/4th /6th/8th semester UG and 2nd/4th semester PG",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42ce",
+        "date": "2025-01-07T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Semester Credit Registration for 2nd/4th /6th/8th semester UG and 2nd/4th semester PG",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42cf",
+        "date": "2025-01-08T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "2nd/4th /6th/8th semester UG and 2nd/4th semester PG instruction begins",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d0",
+        "date": "2025-01-11T00:00:00.000Z",
+        "holidays": "2nd Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d1",
+        "date": "2025-01-12T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d2",
+        "date": "2025-01-14T00:00:00.000Z",
+        "holidays": "Makarsankrant",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d3",
+        "date": "2025-01-18T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Last date of late credit registration",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d4",
+        "date": "2025-01-19T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d5",
+        "date": "2025-01-25T00:00:00.000Z",
+        "holidays": "4th Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d6",
+        "date": "2025-01-26T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": "Republic Day",
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d7",
+        "date": "2025-02-02T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d8",
+        "date": "2025-02-08T00:00:00.000Z",
+        "holidays": "2nd Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42d9",
+        "date": "2025-02-09T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42da",
+        "date": "2025-02-10T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Mid Semester Feedback",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42db",
+        "date": "2025-02-11T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Mid Semester Feedback",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42dc",
+        "date": "2025-02-12T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Mid Semester Feedback",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42dd",
+        "date": "2025-02-13T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Mid Semester Feedback",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42de",
+        "date": "2025-02-14T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Mid Semester Feedback",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42df",
+        "date": "2025-02-15T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Mid Semester Feedback / Vidhyarthi Sanvad",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e0",
+        "date": "2025-02-16T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e1",
+        "date": "2025-02-17T00:00:00.000Z",
+        "holidays": null,
+        "examination": "MSE begins",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e2",
+        "date": "2025-02-18T00:00:00.000Z",
+        "holidays": null,
+        "examination": "MSE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e3",
+        "date": "2025-02-19T00:00:00.000Z",
+        "holidays": "Shivaji Jayanti",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e4",
+        "date": "2025-02-20T00:00:00.000Z",
+        "holidays": null,
+        "examination": "MSE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e5",
+        "date": "2025-02-21T00:00:00.000Z",
+        "holidays": null,
+        "examination": "MSE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e6",
+        "date": "2025-02-22T00:00:00.000Z",
+        "holidays": "4th Saturday",
+        "examination": "MSE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e7",
+        "date": "2025-02-23T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e8",
+        "date": "2025-02-24T00:00:00.000Z",
+        "holidays": null,
+        "examination": "MSE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42e9",
+        "date": "2025-02-25T00:00:00.000Z",
+        "holidays": null,
+        "examination": "MSE ends",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42ea",
+        "date": "2025-02-26T00:00:00.000Z",
+        "holidays": "Mahashivratri",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42eb",
+        "date": "2025-02-27T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": "Marathi Bhasha Din",
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42ec",
+        "date": "2025-02-28T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": "National Science Day",
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42ed",
+        "date": "2025-03-02T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42ee",
+        "date": "2025-03-07T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Last day of MSE Marks entry in MIS",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42ef",
+        "date": "2025-03-08T00:00:00.000Z",
+        "holidays": "2nd Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f0",
+        "date": "2025-03-09T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f1",
+        "date": "2025-03-14T00:00:00.000Z",
+        "holidays": "Holi",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f2",
+        "date": "2025-03-15T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Major Project Mid Sem Presentations and Assessment",
+        "extraCurricularActivities": "Regatta",
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f3",
+        "date": "2025-03-16T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": "Regatta",
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f4",
+        "date": "2025-03-22T00:00:00.000Z",
+        "holidays": "4th Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f5",
+        "date": "2025-03-23T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": "Shahid Din",
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f6",
+        "date": "2025-03-30T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f7",
+        "date": "2025-03-31T00:00:00.000Z",
+        "holidays": "Ramzan Eid",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f8",
+        "date": "2025-04-06T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42f9",
+        "date": "2025-04-10T00:00:00.000Z",
+        "holidays": "Mahavir Jayanti",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42fa",
+        "date": "2025-04-12T00:00:00.000Z",
+        "holidays": "2nd Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": "Gymkhana Day",
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42fb",
+        "date": "2025-04-13T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42fc",
+        "date": "2025-04-14T00:00:00.000Z",
+        "holidays": "Ambedkar Jayanti",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42fd",
+        "date": "2025-04-15T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "End-Semester Feedback",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42fe",
+        "date": "2025-04-16T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "End-Semester Feedback / Vidhyarthi Sanvad",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f42ff",
+        "date": "2025-04-17T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "End-Semester Feedback",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4300",
+        "date": "2025-04-18T00:00:00.000Z",
+        "holidays": "Good Friday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4301",
+        "date": "2025-04-19T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE begins",
+        "academicActivities": "Last day of major project report submission",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4302",
+        "date": "2025-04-20T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4303",
+        "date": "2025-04-21T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4304",
+        "date": "2025-04-22T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4305",
+        "date": "2025-04-23T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4306",
+        "date": "2025-04-24T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4307",
+        "date": "2025-04-25T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4308",
+        "date": "2025-04-26T00:00:00.000Z",
+        "holidays": "4th Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": "World Intellectual Property Day",
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4309",
+        "date": "2025-04-27T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f430a",
+        "date": "2025-04-28T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f430b",
+        "date": "2025-04-29T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f430c",
+        "date": "2025-04-30T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f430d",
+        "date": "2025-05-01T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": "Maharashtra Din",
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f430e",
+        "date": "2025-05-02T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f430f",
+        "date": "2025-05-03T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4310",
+        "date": "2025-05-04T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4311",
+        "date": "2025-05-05T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4312",
+        "date": "2025-05-06T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4313",
+        "date": "2025-05-07T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4314",
+        "date": "2025-05-08T00:00:00.000Z",
+        "holidays": null,
+        "examination": "ESE ends",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4315",
+        "date": "2025-05-09T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Exam of Lab Courses begins",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4316",
+        "date": "2025-05-10T00:00:00.000Z",
+        "holidays": "2nd Saturday",
+        "examination": "Exam of Lab Courses",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4317",
+        "date": "2025-05-11T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": "Exam of Lab Courses",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4318",
+        "date": "2025-05-12T00:00:00.000Z",
+        "holidays": "Buddha purnima",
+        "examination": "Exam of Lab Courses",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4319",
+        "date": "2025-05-13T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Exam of Lab Courses",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f431a",
+        "date": "2025-05-14T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Exam of Lab Courses ends",
+        "academicActivities": "Major project final presentation and assessment",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f431b",
+        "date": "2025-05-15T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Last day of showing answer books",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f431c",
+        "date": "2025-05-16T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Last day of academic performance evaluation by DUPC/DPPC",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f431d",
+        "date": "2025-05-17T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Hard Copy Consolidation and submission to exam cell",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f431e",
+        "date": "2025-05-18T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f431f",
+        "date": "2025-05-19T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Declaration of UG Results",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4320",
+        "date": "2025-05-20T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Re-Exam registration of both theory and lab courses",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4321",
+        "date": "2025-05-21T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem begins",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4322",
+        "date": "2025-05-22T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4323",
+        "date": "2025-05-23T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4324",
+        "date": "2025-05-24T00:00:00.000Z",
+        "holidays": "4th Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4325",
+        "date": "2025-05-25T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4326",
+        "date": "2025-05-26T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4327",
+        "date": "2025-05-27T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4328",
+        "date": "2025-05-28T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4329",
+        "date": "2025-05-29T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f432a",
+        "date": "2025-05-30T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f432b",
+        "date": "2025-05-31T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f432c",
+        "date": "2025-06-01T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f432d",
+        "date": "2025-06-02T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f432e",
+        "date": "2025-06-03T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f432f",
+        "date": "2025-06-04T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4330",
+        "date": "2025-06-05T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": "World Environment Day",
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4331",
+        "date": "2025-06-06T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": "Faculty Sanvad",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4332",
+        "date": "2025-06-07T00:00:00.000Z",
+        "holidays": "Bakari Eid",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4333",
+        "date": "2025-06-08T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4334",
+        "date": "2025-06-09T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4335",
+        "date": "2025-06-10T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4336",
+        "date": "2025-06-11T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4337",
+        "date": "2025-06-12T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4338",
+        "date": "2025-06-13T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4339",
+        "date": "2025-06-14T00:00:00.000Z",
+        "holidays": "2nd Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f433a",
+        "date": "2025-06-15T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f433b",
+        "date": "2025-06-16T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f433c",
+        "date": "2025-06-17T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f433d",
+        "date": "2025-06-18T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f433e",
+        "date": "2025-06-19T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f433f",
+        "date": "2025-06-20T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem",
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4340",
+        "date": "2025-06-21T00:00:00.000Z",
+        "holidays": null,
+        "examination": "Re-Exam odd+even sem ends",
+        "academicActivities": "University Foundation Day",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4341",
+        "date": "2025-06-22T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4342",
+        "date": "2025-06-27T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Last date Re-exam marks hard copy consolidation and submission to",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4343",
+        "date": "2025-06-28T00:00:00.000Z",
+        "holidays": "4th Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4344",
+        "date": "2025-06-29T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4345",
+        "date": "2025-06-30T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "Declaration of Results",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4346",
+        "date": "2025-07-06T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4347",
+        "date": "2025-07-12T00:00:00.000Z",
+        "holidays": "2nd Saturday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4348",
+        "date": "2025-07-13T00:00:00.000Z",
+        "holidays": "Holiday",
+        "examination": null,
+        "academicActivities": null,
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f4349",
+        "date": "2025-07-14T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "3rd/5th/7th UG and 3rd PG Semester Credit Registration AY 2025-26",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f434a",
+        "date": "2025-07-15T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "3rd/5th/7th UG and 3rd PG Semester Credit Registration AY 2025-26",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    },
+    {
+        "_id": "6777a4a720a3d9d8e97f434b",
+        "date": "2025-07-16T00:00:00.000Z",
+        "holidays": null,
+        "examination": null,
+        "academicActivities": "3rd/5th/7th UG and 3rd PG Instruction begins AY\r\n2025-26",
+        "extraCurricularActivities": null,
+        "specialDaysJayantis": null,
+        "__v": 0
+    }
+]
