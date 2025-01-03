@@ -1,7 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react"
-import { Moon, Sun } from 'lucide-react'
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 // Previous utility functions remain unchanged
@@ -11,35 +10,43 @@ const extractPlaylistId = (url) => {
   return match ? match[1] : null;
 };
 
-const branches = ["Computer Engineering"];
+const branches = [
+  "Computer Engineering",
+  "Electronics and Communication Engineering",
+  "Robotics and Artificial Intelligence Engineering",
+  "Electrical Engineering",
+  "Civil Engineering",
+  "Metallurgical Engineering",
+  "Manufacturing and Production Engineering"
+];
 const semesters = ["4"];
 
-function LoadingSkeleton({ isDark }) {
+function LoadingSkeleton() {
   return (
     <div className="animate-pulse space-y-4 w-full max-w-md">
-      <div className={`h-12 w-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'} rounded-lg`} />
-      <div className={`h-12 w-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'} rounded-lg`} />
-      <div className={`h-12 w-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'} rounded-lg`} />
+      <div className="h-12 w-full bg-gray-700 rounded-lg" />
+      <div className="h-12 w-full bg-gray-700 rounded-lg" />
+      <div className="h-12 w-full bg-gray-700 rounded-lg" />
       <div className="space-y-2">
-        <div className={`h-4 w-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'} rounded`} />
-        <div className={`h-4 w-5/6 ${isDark ? 'bg-gray-700' : 'bg-gray-200'} rounded`} />
-        <div className={`h-4 w-4/6 ${isDark ? 'bg-gray-700' : 'bg-gray-200'} rounded`} />
+        <div className="h-4 w-full bg-gray-700 rounded" />
+        <div className="h-4 w-5/6 bg-gray-700 rounded" />
+        <div className="h-4 w-4/6 bg-gray-700 rounded" />
       </div>
     </div>
   )
 }
 
-function ResourceList({ selectedSubject, filteredResources, isDark }) {
+function ResourceList({ selectedSubject, filteredResources }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className={`w-full max-w-6xl ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border`}
+      className="w-full max-w-6xl bg-gray-800 border-gray-700 rounded-2xl shadow-xl border"
     >
-      <div className={`p-6 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
-        <h2 className="text-3xl font-bold text-blue-500">
+      <div className="p-6 border-b border-gray-700">
+        <h2 className="text-3xl font-bold text-blue-400">
           Resources for {selectedSubject}
         </h2>
       </div>
@@ -52,9 +59,9 @@ function ResourceList({ selectedSubject, filteredResources, isDark }) {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
-                className={`${isDark ? 'bg-gray-700' : 'bg-gray-50'} rounded-xl p-6`}
+                className="bg-gray-700 rounded-xl p-6"
               >
-                <h3 className={`font-semibold text-xl mb-4 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
+                <h3 className="font-semibold text-xl mb-4 text-gray-100">
                   {chapter.name}
                 </h3>
                 <ul className="space-y-3">
@@ -67,13 +74,13 @@ function ResourceList({ selectedSubject, filteredResources, isDark }) {
                         transition={{ delay: index * 0.1 }}
                         className="flex items-center"
                       >
-                        <span className="w-3 h-3 bg-blue-500 rounded-full mr-3"></span>
+                        <span className="w-3 h-3 bg-blue-400 rounded-full mr-3"></span>
                         {res.type === "youtube" ? (
                           <a
                             href={`/yt/${encodeURIComponent(
                               extractPlaylistId(res.link) || ""
                             )}?from=${res.from}&to=${res.to}`}
-                            className="text-blue-500 hover:text-blue-400 font-medium transition-colors hover:underline text-lg"
+                            className="text-blue-400 hover:text-blue-300 font-medium transition-colors hover:underline text-lg"
                           >
                             {res.type} - {res.linkName || res.link}
                           </a>
@@ -82,7 +89,7 @@ function ResourceList({ selectedSubject, filteredResources, isDark }) {
                             href={res.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-500 hover:text-blue-400 font-medium transition-colors hover:underline text-lg"
+                            className="text-blue-400 hover:text-blue-300 font-medium transition-colors hover:underline text-lg"
                           >
                             {res.type} - {res.linkName || res.link}
                           </a>
@@ -90,7 +97,7 @@ function ResourceList({ selectedSubject, filteredResources, isDark }) {
                       </motion.li>
                     ))
                   ) : (
-                    <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} text-lg`}>
+                    <p className="text-gray-400 text-lg">
                       No resources available for this chapter.
                     </p>
                   )}
@@ -105,7 +112,6 @@ function ResourceList({ selectedSubject, filteredResources, isDark }) {
 }
 
 const FetchResourcesPage = () => {
-  const [isDark, setIsDark] = useState(true)
   const [formData, setFormData] = useState({ branch: "", semester: "" })
   const [resources, setResources] = useState([])
   const [subjects, setSubjects] = useState([])
@@ -148,48 +154,38 @@ const FetchResourcesPage = () => {
   )
 
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center p-8 transition-colors bg-gradient-to-b from-[#001233] to-[#001845]`}>
-      <div className="fixed top-4 right-4">
-        <button
-          onClick={() => setIsDark(!isDark)}
-          className={`p-2 rounded-lg ${isDark ? 'bg-gray-800 text-gray-100' : 'bg-white text-gray-900'} shadow-lg transition-all duration-300 ease-in-out`}
-          aria-label="Toggle dark mode"
-        >
-          {isDark ? <Sun size={24} /> : <Moon size={24} />}
-        </button>
-      </div>
-
+    <div className="min-h-screen flex flex-col items-center justify-center p-8 transition-colors bg-gray-900">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`w-full max-w-md ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border mb-8`}
+        className="w-full max-w-md bg-gray-800 border-gray-700 rounded-2xl shadow-xl border mb-8"
       >
-        <div className={`p-6 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
-          <h1 className="text-3xl font-bold text-blue-500">
+        <div className="p-6 border-b border-gray-700">
+          <h1 className="text-3xl font-bold text-blue-400">
             Study Resources
           </h1>
-          <p className={`mt-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+          <p className="mt-2 text-gray-400">
             Select your branch and semester to explore resources
           </p>
         </div>
         <div className="p-6">
           <form onSubmit={fetchResources} className="space-y-6">
             <div className="space-y-2">
-              <label className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className="text-sm font-medium text-gray-300">
                 Branch
               </label>
               <select
-                className={`w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
-                  ${isDark ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-white border-gray-300 text-gray-900'}`}
+                className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
+                  bg-gray-700 border-gray-600 text-gray-100"
                 onChange={(e) => handleInputChange("branch", e.target.value)}
                 value={formData.branch}
               >
-                <option value="" className={isDark ? 'text-gray-400' : 'text-gray-500'}>
+                <option value="" className="text-gray-400">
                   Select a Branch
                 </option>
                 {branches.map((branch) => (
-                  <option key={branch} value={branch} className={isDark ? 'text-gray-100' : 'text-gray-900'}>
+                  <option key={branch} value={branch} className="text-gray-100">
                     {branch}
                   </option>
                 ))}
@@ -197,20 +193,20 @@ const FetchResourcesPage = () => {
             </div>
 
             <div className="space-y-2">
-              <label className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className="text-sm font-medium text-gray-300">
                 Semester
               </label>
               <select
-                className={`w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
-                  ${isDark ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-white border-gray-300 text-gray-900'}`}
+                className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
+                  bg-gray-700 border-gray-600 text-gray-100"
                 onChange={(e) => handleInputChange("semester", e.target.value)}
                 value={formData.semester}
               >
-                <option value="" className={isDark ? 'text-gray-400' : 'text-gray-500'}>
+                <option value="" className="text-gray-400">
                   Select a Semester
                 </option>
                 {semesters.map((sem) => (
-                  <option key={sem} value={sem} className={isDark ? 'text-gray-100' : 'text-gray-900'}>
+                  <option key={sem} value={sem} className="text-gray-100">
                     Semester {sem}
                   </option>
                 ))}
@@ -237,7 +233,7 @@ const FetchResourcesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="mt-4 w-full max-w-md bg-red-900/10 border border-red-900/20 text-red-500 rounded-xl p-4"
+            className="mt-4 w-full max-w-md bg-red-900/20 border border-red-900/30 text-red-400 rounded-xl p-4"
           >
             <p className="font-semibold">Error</p>
             <p>{error}</p>
@@ -247,7 +243,7 @@ const FetchResourcesPage = () => {
 
       {loading && (
         <div className="mt-6">
-          <LoadingSkeleton isDark={isDark} />
+          <LoadingSkeleton />
         </div>
       )}
 
@@ -258,20 +254,20 @@ const FetchResourcesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className={`mt-6 w-full max-w-md ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-2xl shadow-xl border`}
+            className="mt-6 w-full max-w-md bg-gray-800 border-gray-700 rounded-2xl shadow-xl border"
           >
             <div className="p-6">
               <select
-                className={`w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
-                  ${isDark ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-white border-gray-300 text-gray-900'}`}
+                className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
+                  bg-gray-700 border-gray-600 text-gray-100"
                 onChange={(e) => setSelectedSubject(e.target.value)}
                 value={selectedSubject}
               >
-                <option value="" className={isDark ? 'text-gray-400' : 'text-gray-500'}>
+                <option value="" className="text-gray-400">
                   Select a Subject
                 </option>
                 {subjects.map((subject, index) => (
-                  <option key={index} value={subject} className={isDark ? 'text-gray-100' : 'text-gray-900'}>
+                  <option key={index} value={subject} className="text-gray-100">
                     {subject}
                   </option>
                 ))}
@@ -287,7 +283,6 @@ const FetchResourcesPage = () => {
             <ResourceList
               selectedSubject={selectedSubject}
               filteredResources={filteredResources}
-              isDark={isDark}
             />
           </div>
         )}
@@ -300,7 +295,7 @@ const FetchResourcesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className={`mt-6 font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+            className="mt-6 font-medium text-gray-400"
           >
             No resources found.
           </motion.p>
