@@ -64,7 +64,6 @@ const CalendarDay = ({ day, events, onShowEvents, isToday }) => {
     { key: 'specialDaysJayantis', label: 'Special Days/Jayantis', color: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' }
   ];
 
-  // Determine cell background color based on events
   const hasHoliday = events.some(event => event.holidays);
   const hasExamination= events.some(event => event.examination);
   const cellBackground = hasExamination ? 'bg-yellow-700/60' : hasHoliday ? 'bg-red-900/60' : 'bg-[#001233]/30';
@@ -97,9 +96,6 @@ const CalendarDay = ({ day, events, onShowEvents, isToday }) => {
   );
 };
 
-// Rest of the CalendarComponent remains the same...
-
-// Main calendar component
 const CalendarComponent = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [events, setEvents] = useState([]);
@@ -186,19 +182,21 @@ const CalendarComponent = () => {
 
   return (
     <motion.div
-      className="h-fit bg-gradient-to-b from-[#001233] to-[#001845]"
+      className="min-h-screen bg-gradient-to-b from-[#001233] to-[#001845]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-    <div className="fixed bg-yellow-200 w-full  z-10 text-black p-4 rounded-lg text-center flex items-center justify-center gap-2">
-        <AlertTriangle size={20} className="text-black" /> {/* Info icon */}
-        <strong>Disclaimer:</strong> The listed events are subject to change due to modifications in the academic calendar. Please refer to the official academic calendar for the most up-to-date information.
-    </div>
+      <div className="bg-yellow-200 mx-4 mt-2 p-2 rounded-lg text-black text-xs flex items-center justify-center gap-1">
+        <AlertTriangle size={12} className="text-black flex-shrink-0" />
+        <p className="flex-1 text-center">
+          Events subject to change. Check official calendar.
+        </p>
+      </div>
 
-      <main className="container mx-auto px-4 py-20">
+      <main className="container mx-auto px-4 py-8">
         <motion.section 
-          className="mb-24"
+          className="mb-8 md:mb-24"
           initial={{ y: 20, opacity: 0 }}
           animate={{ 
             y: 0, 
@@ -210,8 +208,7 @@ const CalendarComponent = () => {
             }
           }}
         >
-          <div className="bg-[#002855]/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-[#00B4D8]/20">
-            {/* Header section */}
+          <div className="bg-[#002855]/80 backdrop-blur-sm rounded-2xl p-4 md:p-8 shadow-xl border border-[#00B4D8]/20">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-4">
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 <span className="inline-flex items-center border-b-2 border-[#00B4D8] pb-2">
@@ -246,7 +243,7 @@ const CalendarComponent = () => {
               </div>
             )}
 
-<div className="grid grid-cols-7 gap-1 relative">
+            <div className="grid grid-cols-7 gap-1 relative">
               {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
                 <div key={day} className="text-[#00B4D8] font-semibold p-2 text-center">
                   {day}
@@ -280,7 +277,6 @@ const CalendarComponent = () => {
               })}
             </div>
 
-            {/* Legend */}
             <div className="mt-6 flex flex-wrap gap-4">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded bg-red-500/20"></div>
@@ -316,8 +312,11 @@ const CalendarComponent = () => {
         </motion.section>
       </main>
 
-
       <style jsx global>{`
+        body {
+          min-height: 100vh;
+          background: #001845;
+        }
         .custom-scrollbar::-webkit-scrollbar {
           width: 6px;
         }
@@ -332,7 +331,6 @@ const CalendarComponent = () => {
           background: #0090a8;
         }
       `}</style>
-      
     </motion.div>
   );
 };

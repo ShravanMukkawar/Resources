@@ -77,7 +77,7 @@ const Home = () => {
                         </h2>
                         <div className="text-white/90 max-w-4xl mx-auto p-6 bg-[#001233]/50 rounded-xl">
                             <p className="text-lg leading-relaxed">
-                                Welcome to our computer engineering resource hub. Initially focused on Semester 4 materials, we've expanded to support students across various branches. Our platform offers study materials, coding resources, and contest updates to assist you in your academic journey. Join our community to stay informed about the latest competitive programming contests and educational resources.
+                            Welcome to our Resources Hub! Initially focused on Computer Science students, we’ve gradually expanded to support all branches with academic materials,and contest updates. Stay ahead in your academic journey with us, and Don’t forget to share your feedback!
                             </p>
                         </div>
                     </div>
@@ -151,19 +151,36 @@ const Home = () => {
                 </motion.section>
 
                 {/* Footer */}
-                <motion.footer 
-                    variants={itemVariants}
-                    className="text-center text-gray-300 py-8 border-t border-[#00B4D8]/20 mt-12"
-                >
-                    <p className="text-sm mb-4">
-                        © 2025 Computer Engineering Hub. All rights reserved.
-                    </p>
-                    <div className="flex flex-col items-center justify-center space-y-4">
-                        <p className="text-lg font-medium text-white">
-                            Designed by Arbaj and Shravan
-                        </p>
-                    </div>
-                </motion.footer>
+                <motion.footer
+    variants={itemVariants}
+    className="text-center text-gray-300 py-8 border-t border-[#00B4D8]/20 mt-12"
+>
+    <p className="text-sm mb-4">
+        © 2025 Academix. All rights reserved.
+    </p>
+    <div className="flex flex-col items-center justify-center space-y-4">
+        <p className="text-lg font-medium text-white">
+            Designed by{' '}
+            <a 
+                href="https://www.linkedin.com/in/arbaj-shaikh-0b2bb325a" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-[#00B4D8] hover:text-[#0090a8] transition-colors"
+            >
+                Arbaj
+            </a>
+            {' '}and{' '}
+            <a 
+                href="https://www.linkedin.com/in/shravan-mukkawar-287894249/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#00B4D8] hover:text-[#0090a8] transition-colors"
+            >
+                Shravan
+            </a>
+        </p>
+    </div>
+</motion.footer>
             </main>
             
         </motion.div>
