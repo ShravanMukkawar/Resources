@@ -12,14 +12,8 @@ const extractPlaylistId = (url) => {
 
 const branches = [
   "Computer Engineering",
-  "Electronics and Communication Engineering",
-  "Robotics and Artificial Intelligence Engineering",
-  "Electrical Engineering",
-  "Civil Engineering",
-  "Metallurgical Engineering",
-  "Manufacturing and Production Engineering"
 ];
-const semesters = ["4"];
+const semesters = ["2","4"];
 
 function LoadingSkeleton() {
   return (
