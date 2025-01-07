@@ -13,7 +13,7 @@ const extractPlaylistId = (url) => {
 const branches = [
   "Computer Engineering",
 ];
-const semesters = ["2","4"];
+const semesters = ["2","4","6"];
 
 function LoadingSkeleton() {
   return (
