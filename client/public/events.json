@@ -244,7 +244,7 @@
         "date": "2025-02-17T00:00:00.000Z",
         "holidays": null,
         "examination": "MSE begins",
-        "academicActivities": null,
+        "academicActivities": "TY: Data Science",
         "extraCurricularActivities": null,
         "specialDaysJayantis": null,
         "__v": 0
@@ -254,7 +254,7 @@
         "date": "2025-02-18T00:00:00.000Z",
         "holidays": null,
         "examination": "MSE",
-        "academicActivities": null,
+        "academicActivities": "TY: DAA",
         "extraCurricularActivities": null,
         "specialDaysJayantis": null,
         "__v": 0
@@ -284,7 +284,7 @@
         "date": "2025-02-21T00:00:00.000Z",
         "holidays": null,
         "examination": "MSE",
-        "academicActivities": null,
+        "academicActivities": "TY: OS",
         "extraCurricularActivities": null,
         "specialDaysJayantis": null,
         "__v": 0
@@ -293,7 +293,7 @@
         "_id": "6777a4a720a3d9d8e97f42e6",
         "date": "2025-02-22T00:00:00.000Z",
         "holidays": "4th Saturday",
-        "examination": "MSE",
+        "examination": null,
         "academicActivities": null,
         "extraCurricularActivities": null,
         "specialDaysJayantis": null,
@@ -314,7 +314,7 @@
         "date": "2025-02-24T00:00:00.000Z",
         "holidays": null,
         "examination": "MSE",
-        "academicActivities": null,
+        "academicActivities": "TY: ADS/WST",
         "extraCurricularActivities": null,
         "specialDaysJayantis": null,
         "__v": 0
@@ -323,8 +323,8 @@
         "_id": "6777a4a720a3d9d8e97f42e9",
         "date": "2025-02-25T00:00:00.000Z",
         "holidays": null,
-        "examination": "MSE ends",
-        "academicActivities": null,
+        "examination": "MSE",
+        "academicActivities": "TY: IOC",
         "extraCurricularActivities": null,
         "specialDaysJayantis": null,
         "__v": 0
@@ -343,8 +343,8 @@
         "_id": "6777a4a720a3d9d8e97f42eb",
         "date": "2025-02-27T00:00:00.000Z",
         "holidays": null,
-        "examination": null,
-        "academicActivities": null,
+        "examination": "MSE",
+        "academicActivities": "TY: Economics",
         "extraCurricularActivities": null,
         "specialDaysJayantis": "Marathi Bhasha Din",
         "__v": 0
@@ -353,8 +353,8 @@
         "_id": "6777a4a720a3d9d8e97f42ec",
         "date": "2025-02-28T00:00:00.000Z",
         "holidays": null,
-        "examination": null,
-        "academicActivities": null,
+        "examination": "MSE",
+        "academicActivities": "TY: BDA/EH",
         "extraCurricularActivities": null,
         "specialDaysJayantis": "National Science Day",
         "__v": 0
