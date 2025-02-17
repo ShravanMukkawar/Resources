@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const FeedbackForm = () => {
   const [feedback, setFeedback] = useState({
-    name: '',
-    branch: '',
+    name: 'guest',
+    branch: 'guest',
     suggestion: ''
   });
   
@@ -83,7 +83,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="min-h-screen  bg-[#001233] px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div className="min-h-screen bg-[#001233] px-4 sm:px-6 lg:px-8 flex items-center justify-center">
       <motion.div 
         className="w-full max-w-md"
         initial="hidden"
@@ -112,7 +112,7 @@ const FeedbackForm = () => {
 
           <div className="p-8">
             <form onSubmit={handleFeedbackSubmit} className="space-y-6">
-              <motion.div 
+              {/* <motion.div 
                 className="space-y-2"
                 variants={inputVariants}
                 whileHover={{ scale: 1.01 }}
@@ -130,9 +130,9 @@ const FeedbackForm = () => {
                   className="w-full px-4 py-3 rounded-xl bg-[#001845] border border-[#003875] text-white placeholder-gray-400 focus:border-[#00B4D8] focus:ring-2 focus:ring-[#00B4D8] outline-none transition-all duration-200"
                   required
                 />
-              </motion.div>
+              </motion.div> */}
 
-              <motion.div 
+              {/* <motion.div 
                 className="space-y-2"
                 variants={inputVariants}
                 whileHover={{ scale: 1.01 }}
@@ -150,7 +150,7 @@ const FeedbackForm = () => {
                   className="w-full px-4 py-3 rounded-xl bg-[#001845] border border-[#003875] text-white placeholder-gray-400 focus:border-[#00B4D8] focus:ring-2 focus:ring-[#00B4D8] outline-none transition-all duration-200"
                   required
                 />
-              </motion.div>
+              </motion.div> */}
 
               <motion.div 
                 className="space-y-2"

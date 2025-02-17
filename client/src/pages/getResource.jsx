@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 // Previous utility functions remain unchanged
@@ -106,24 +106,29 @@ function ResourceList({ selectedSubject, filteredResources }) {
 }
 
 const FetchResourcesPage = () => {
-  const [formData, setFormData] = useState({ branch: "", semester: "" })
+  const [formData, setFormData] = useState({ 
+    branch: localStorage.getItem('branch') || "", 
+    semester: localStorage.getItem('semester') || "" 
+  });
   const [resources, setResources] = useState([])
   const [subjects, setSubjects] = useState([])
-  const [selectedSubject, setSelectedSubject] = useState("")
+  const [selectedSubject, setSelectedSubject] = useState(localStorage.getItem('subject') || "")
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value })
   }
-
+  // const resourcesRef = useRef(null);
   const fetchResources = async (e) => {
-    e.preventDefault()
+    if (e) e.preventDefault()
     setLoading(true)
     setError(null)
 
     try {
       const { branch, semester } = formData
+      localStorage.setItem("semester", semester)
+      localStorage.setItem("branch", branch)
       const response = await fetch(
         `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/v1/resources?branch=${branch}&semester=${semester}`
       )
@@ -136,12 +141,23 @@ const FetchResourcesPage = () => {
       setResources(data || [])
       const subjects = data.map((resource) => resource.subject.name)
       setSubjects([...new Set(subjects)])
+      if (data.length > 0) {
+        setTimeout(() => {
+          window.location.hash = "#resources"; // Scroll using URL fragment
+        }, 500); // Adding slight delay for smooth experience
+      }
     } catch (err) {
       setError("An error occurred while fetching resources.")
     } finally {
       setLoading(false)
     }
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('branch') && localStorage.getItem('semester')) {
+      fetchResources()
+    }
+  }, [])
 
   const filteredResources = resources.filter(
     (resource) => resource.subject.name === selectedSubject
@@ -244,6 +260,7 @@ const FetchResourcesPage = () => {
       <AnimatePresence>
         {resources.length > 0 && !loading && (
           <motion.div
+            id="resources" // Add this ID
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -254,7 +271,10 @@ const FetchResourcesPage = () => {
               <select
                 className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none
                   bg-gray-700 border-gray-600 text-gray-100"
-                onChange={(e) => setSelectedSubject(e.target.value)}
+                  onChange={(e) => {
+                    setSelectedSubject(e.target.value);
+                    localStorage.setItem('subject', e.target.value);
+                  }}
                 value={selectedSubject}
               >
                 <option value="" className="text-gray-400">
