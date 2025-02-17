@@ -109,7 +109,7 @@ const Home = () => {
                                     {/* Display Holidays */}
                                     {event.holidays && (
                                         <div className="text-white text-xl font-semibold mb-2">
-                                            <strong>Holiday</strong> {event.holidays==='Holiday'? "": event.holidays}
+                                            <strong>Holiday</strong> {event.holidays && event.holidays !== "Holiday" ? `: ${event.holidays}` : ""}
                                         </div>
                                     )}
 
